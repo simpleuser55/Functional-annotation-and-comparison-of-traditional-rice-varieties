@@ -1,74 +1,113 @@
-Bioinformatics pipeline for variant discovery and functional analysis of rice genomes.
-
-# Rice Variant Functional Analysis Pipeline
-
-This repository contains the computational workflow used for genomic variant discovery and functional annotation in traditional rice varieties.
-
-The pipeline is demonstrated using **Seeraga Samba** whole-genome sequencing data.  
+Functional Annotation and Comparison of Traditional Rice Varieties
+Bioinformatics pipeline for genomic variant discovery, functional annotation, and candidate gene prioritization in traditional rice varieties.
+This repository contains the computational workflow used to analyze whole-genome sequencing data from traditional rice varieties and identify potentially functional genetic variants associated with stress response and metabolic pathways.
+The pipeline is demonstrated using Seeraga Samba sequencing data.
 The same workflow was applied to additional rice varieties for comparative genomic analysis.
 
----
+Pipeline Overview
+The workflow consists of the following major steps:
 
-## Pipeline Overview
 
-1. Quality control and trimming using fastp
-2. Alignment to Nipponbare reference genome using BWA
-3. BAM processing using SAMtools and Picard
-4. Variant calling using GATK
-5. Variant annotation using SnpEff
-6. Functional annotation using EggNOG-mapper
-7. KEGG enrichment analysis using TBtools
-8. GO enrichment analysis using PantherDB
-9. Candidate gene extraction
-10. Protein truncation analysis
-11. Comparative protein analysis with indica rice
+Quality Control and Trimming
 
----
+fastp
 
-## Data Sources
 
-Raw sequencing reads:
+
+Read Alignment
+
+Mapping to the Oryza sativa Nipponbare reference genome using BWA
+
+
+
+BAM Processing
+
+SAMtools sorting and indexing
+Picard duplicate marking
+
+
+
+Variant Calling
+
+SNP discovery using GATK HaplotypeCaller
+
+
+
+Variant Annotation
+
+Functional impact prediction using SnpEff
+
+
+
+Functional Annotation
+
+Orthology and pathway mapping using EggNOG-mapper
+
+
+
+Pathway and GO Enrichment
+
+KEGG enrichment using TBtools
+GO enrichment using PantherDB
+
+
+
+Candidate Gene Identification
+
+Extraction of genes with HIGH impact variants
+Filtering for loss-of-function mutations including:
+
+stop_gained
+frameshift_variant
+splice_donor_variant
+splice_acceptor_variant
+start_lost
+
+
+
+
+
+Protein Impact Analysis
+
+Prediction of truncation positions
+Calculation of percent protein loss
+
+
+
+Comparative Analysis
+
+
+
+Comparison of affected proteins with Oryza sativa indica reference proteins using BLAST.
+
+
+Data Sources
+Raw sequencing data
+NCBI Sequence Read Archive (SRA)
+Example dataset used in this repository:
+SRR3625307
 https://www.ncbi.nlm.nih.gov/sra/SRR3625307
-
 Reference genome:
-Oryza sativa Nipponbare IRGSP-1.0  
+Oryza sativa Nipponbare IRGSP-1.0
 NCBI Assembly: GCF_001433935.1
+Genome FASTA and annotation files were downloaded from the NCBI genome database.
 
-Annotation:
-IRGSP-1.0 GFF3
+Repository Structure
+pipeline/
+variant_pipeline.sh
+scripts/
+GO_enrichment_plot.R
+KEGG_plot.R
+figures/
+GO_barplot.png
+KEGG_bubble_plot.png
+results/
+(intermediate and processed outputs)
 
----
+Notes
+Large sequencing files (FASTQ, BAM, VCF) are not included in this repository.
+All raw data can be downloaded directly from the NCBI SRA using the accession numbers provided above.
 
-## Tools Used
+Citation
+If you use this pipeline or repository in your work, please cite the associated publication (in preparation).
 
-fastp  
-BWA  
-SAMtools  
-Picard  
-GATK  
-SnpEff  
-EggNOG-mapper  
-TBtools  
-R (ggplot2, dplyr)
-
----
-
-## Repository Structure
-
-pipeline/ variant_pipeline.sh
-scripts/ GO_enrichment_plot.R KEGG_plot.R
-figures/ GO_barplot.png KEGG_bubble_plot.png
-
----
-
-## Notes
-
-Large sequencing files (FASTQ, BAM, VCF) are not included in this repository.  
-They can be downloaded from NCBI SRA using the accession number provided above.
-
-The pipeline is demonstrated using **Seeraga Samba** whole-genome sequencing data.  
-The same workflow was applied to two more traditional rice varieties for comparative genomic analysis.
-
-## Citation
-
-If you use this pipeline in your research, please cite the associated publication (in preparation).
