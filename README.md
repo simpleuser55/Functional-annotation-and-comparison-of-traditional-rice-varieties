@@ -1,3 +1,6 @@
+Computational pipeline developed for genomic variant discovery,
+functional annotation, and candidate gene prioritization in traditional rice varieties.
+
 # Functional Annotation and Comparison of Traditional Rice Varieties
 
 Bioinformatics pipeline for genomic variant discovery, functional annotation, and candidate gene prioritization in traditional rice varieties.
