@@ -8,7 +8,7 @@ Bioinformatics pipeline for genomic variant discovery, functional annotation, an
 This repository contains the computational workflow used to analyze whole-genome sequencing data from traditional rice varieties and identify potentially functional genetic variants associated with stress response and metabolic pathways.
 
 The pipeline is demonstrated using **Seeraga Samba** sequencing data.  
-The same workflow was applied to additional rice varieties for comparative genomic analysis.
+The same workflow was applied to additional rice varieties such as Vellai Kowni and Madu Muzhungi for comparative genomic analysis which are the core parts of this study.
 
 ---
 
